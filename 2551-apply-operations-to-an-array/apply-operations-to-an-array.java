@@ -10,13 +10,14 @@ class Solution {
             }
         }
         int j =0;
-        int[] temp = new int[n];
         for(int i =0;i<n;i++){
             if(nums[i]!=0){
-                temp[j]=nums[i];
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
                 j++;
             }
         }
-        return temp;
+        return nums;
     }   
 }
