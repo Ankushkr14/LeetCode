@@ -7,11 +7,12 @@ class Solution {
             arr.add(sum);
         }
         Collections.sort(arr);
+        int m = arr.size()-1;
         long max = 0;
         long min = 0;
         for(int i = 0;i<k-1;i++){
             min+=arr.get(i);
-            max+=arr.get(n-2-i);
+            max+=arr.get(m-i);
         }
         return (max-min);
     }
