@@ -1,24 +1,26 @@
 class Solution {
-
     public boolean isZeroArray(int[] nums, int[][] queries) {
-        int[] deltaArray = new int[nums.length + 1];
-        for (int[] query : queries) {
-            int left = query[0];
-            int right = query[1];
-            deltaArray[left] += 1;
-            deltaArray[right + 1] -= 1;
-        }
-        int[] operationCounts = new int[deltaArray.length];
-        int currentOperations = 0;
-        for (int i = 0; i < deltaArray.length; i++) {
-            currentOperations += deltaArray[i];
-            operationCounts[i] = currentOperations;
-        }
-        for (int i = 0; i < nums.length; i++) {
-            if (operationCounts[i] < nums[i]) {
-                return false;
+        int n = nums.length;
+        int[] arr = new int[n];
+        for(int[] q : queries){
+            int start = q[0];
+            int end = q[1];
+            arr[start]+=1;
+            if(end+1<n){
+                arr[end+1]-=1;
             }
         }
+
+        int sum = 0;
+        for(int i = 0;i<n;i++){
+            sum+= arr[i];
+            arr[i] = sum;
+
+            if(arr[i] < nums[i]){
+                return false;
+            }
+        }   
+
         return true;
     }
 }
