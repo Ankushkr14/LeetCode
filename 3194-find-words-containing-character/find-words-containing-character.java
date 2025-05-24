@@ -5,8 +5,7 @@ class Solution {
 
         for(int i = 0; i<n;i++){
             String ch = words[i];
-            String str = String.valueOf(x);
-            if(ch.contains(str)){
+            if(ch.indexOf(x) != -1){
                 arr.add(i);
             }
         }
