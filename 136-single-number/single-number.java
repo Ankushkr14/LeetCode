@@ -5,12 +5,11 @@ class Solution {
         for(int i =0;i<n;i++){
             map.put(nums[i], map.getOrDefault(nums[i],0)+1);
         }
-        int ans = 0;
         for(Map.Entry<Integer,Integer> entry : map.entrySet()){
             if(entry.getValue()==1){
-                ans =  entry.getKey();
+                return entry.getKey();
             }
         }
-        return ans;
+        return -1;
     }
 }
