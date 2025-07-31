@@ -9,7 +9,7 @@ class Solution {
         return check(str, n-1, i+1);
     }
     public boolean isPalindrome(String s) {
-        String str = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-        return check(str, str.length()-1, 0);
+        s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        return check(s, s.length()-1, 0);
     }
 }
